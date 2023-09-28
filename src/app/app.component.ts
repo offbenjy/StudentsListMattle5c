@@ -10,7 +10,7 @@ import { ClassesService, StudentDto, StudentsService } from './swagger';
 
 export class AppComponent implements OnInit { 
   classes: string[] = [];
-  selectedClass: string ="";
+  selectedClass: string ="5c";
   students: StudentDto[] = [];
 
 
@@ -23,13 +23,16 @@ export class AppComponent implements OnInit {
     this.classesService.classesGet()
     .subscribe(x=> this.classes=x);
 
-    this.studentsService.studentsGet()
+    this.studentsService.studentsGet(this.selectedClass)
     .subscribe(x=> this.students=x);
   }
 
   onSelectedClassChanged(selectedClass: string): void {
     console.log(selectedClass);
     this.selectedClass = selectedClass;
+
+    this.studentsService.studentsGet(this.selectedClass)
+    .subscribe(x=> this.students=x);
   }
 
 

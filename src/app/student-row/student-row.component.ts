@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { StudentDto } from '../swagger';
 
 @Component({
   selector: 'app-student-row',
@@ -6,12 +7,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./student-row.component.scss']
 })
 export class StudentRowComponent {
-  @Input() student: any; // Input property to receive student data
+  @Input() student: StudentDto[] = []; // Input property to receive student data
   @Output() moveStudent = new EventEmitter<string>();
 
-  getAgeString(): void {
-    // Implement logic to convert age to "20+", "30+", etc.
-    // Example: return `${Math.floor(this.student.age / 10) * 10}+`;
+  getAgeString(student: StudentDto): string {
+     return `${Math.floor(student.age / 10) * 10}+`;
   }
 
   changeRegistered(): void {

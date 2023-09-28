@@ -1,0 +1,25 @@
+.student-row {
+    display: flex;
+    align-items: center;
+  
+    .gender {
+      width: 20px; /* Adjust width as needed */
+      height: 20px;
+      background-size: cover;
+    }
+  
+    .name {
+      width: 80px; /* Adjust width as needed */
+    }
+  
+    .age {
+      width: 30px; /* Adjust width as needed */
+    }
+  
+    .registered {
+      width: 20px; /* Adjust width as needed */
+      height: 20px;
+      background-size: cover;
+      cursor: pointer;
+    }
+  }
