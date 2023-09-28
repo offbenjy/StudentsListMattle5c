@@ -1,0 +1,7 @@
+<div class="student-row">
+    <div class="gender" [ngClass]="{'male': student.gender === 'M', 'female': student.gender === 'F'}"></div>
+    <div class="name">{{ student.name }}</div>
+    <div class="age">{{ getAgeString() }}</div>
+    <div class="registered" (click)="changeRegistered()"></div>
+    <input type="number" [(ngModel)]="student.age" (ngModelChange)="updateAge()">
+  </div>
