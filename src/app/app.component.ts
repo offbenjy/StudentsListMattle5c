@@ -23,16 +23,22 @@ export class AppComponent implements OnInit {
     this.classesService.classesGet()
     .subscribe(x=> this.classes=x);
 
-    this.studentsService.studentsGet(this.selectedClass)
-    .subscribe(x=> this.students=x);
+      this.studentsService.studentsGet(this.selectedClass)
+      .subscribe(x=> this.students=x);
   }
 
   onSelectedClassChanged(selectedClass: string): void {
     console.log(selectedClass);
     this.selectedClass = selectedClass;
 
+    console.log("Students reset");
+    this.students = [];
+    
+    console.log("Student list filled with ");
+
     this.studentsService.studentsGet(this.selectedClass)
     .subscribe(x=> this.students=x);
+    console.log(this.students);
   }
 
 
