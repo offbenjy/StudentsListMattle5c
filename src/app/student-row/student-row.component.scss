@@ -9,17 +9,21 @@
     }
   
     .name {
-      width: 80px; /* Adjust width as needed */
+      width: 80px; 
+      font-weight: bold;
+
+      /* Adjust width as needed */
     }
   
     .age {
       width: 30px; /* Adjust width as needed */
     }
-  
+    .spaces {
+    width: 20px;
+    }
     .registered {
       width: 20px; /* Adjust width as needed */
       height: 20px;
       background-size: cover;
-      cursor: pointer;
     }
   }

@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { StudentDto } from '../swagger';
 
 @Component({
-  selector: 'app-student-row',
-  templateUrl: './student-row.component.html',
-  styleUrls: ['./student-row.component.scss']
+  selector: 'app-app-student-row-card',
+  templateUrl: './app-student-row-card.component.html',
+  styleUrls: ['./app-student-row-card.component.scss']
 })
-export class StudentRowComponent {
+export class AppStudentRowCardComponent {
+
   @Input() clazzes: string[] = [];
   @Input() student: StudentDto[] = []; 
   

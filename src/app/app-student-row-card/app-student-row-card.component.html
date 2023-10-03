@@ -1,22 +1,27 @@
-
-<div class="student-row" *ngFor="let student of student">
+<div class="student-card-container">
+    <div class="student-card" *ngFor="let student of student">
     <!-- <label class="gender" [ngClass]="{'male': student.gender == 'M', 'female': student.gender == 'F'}">{{student.gender}} </label> -->
     <img class="gender" *ngIf="student.gender === 'M'" src="./assets/m.jpg" alt="Male">
      <img  class="gender" *ngIf="student.gender === 'F'" src="./assets/f.jpg" alt="Female">
+    
     <label class="name">{{ student.lastname }}</label>
     <label class="name">{{ student.firstname }}</label>
+    <hr>
     <label class="age">{{ getAgeString(student) }}</label>
-    
     <span class="registered" (click)="toggleIsRegistered(student)">
-      <img  class="registered" *ngIf="student.isRegistered === true" src="./assets/check.png" alt="check"> 
-    </span> 
-         
-    <!-- <div (click)="toggleIsRegistered(student)" class="spaces" *ngIf="!student.isRegistered"></div> -->
+        <img  class="registered" *ngIf="student.isRegistered === true" src="./assets/check.png" alt="check"> 
+        <img  class="registered" *ngIf="student.isRegistered === false" >
+      </span> 
+    <!-- <img (click)="toggleIsRegistered(student)" class="registered" *ngIf="student.isRegistered === true" src="./assets/check.png" alt="check">
+    <div (click)="toggleIsRegistered(student)" class="spaces" *ngIf="!student.isRegistered"></div> -->
     <!-- <img  class="registered" *ngIf="student.isRegistered === false" src="./assets/check.jp" >    -->
-
+    
      <input type="number" [(ngModel)]="student.age" (ngModelChange)="updateAge()">
     <span *ngFor="let clazz of clazzes">
       <button (click)="moveStudentTo(clazz, student)"> {{clazz}}</button>
   </span>
   </div>
+</div>
 
+
+  
