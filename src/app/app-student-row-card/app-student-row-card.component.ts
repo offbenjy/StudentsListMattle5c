@@ -16,18 +16,10 @@ export class AppStudentRowCardComponent {
   moveStudentTo(clazzName :string, selectedStudent: StudentDto):void{
     this.moveStudent.emit(clazzName+"_"+selectedStudent.id+'_'+selectedStudent.clazzName);
   }
-
   getAgeString(student: StudentDto): string {
      return `${Math.floor(student.age / 10) * 10}+`;
   }
-
-
-  toggleIsRegistered(student: StudentDto): void {
-    // if(student.isRegistered == true) {
-    //   student.isRegistered = false;
-    // }else {
-    //   student.isRegistered = true;
-    // }
+  toggleIsRegistered(student: StudentDto): void {   
     student.isRegistered = !student.isRegistered;
 
   }

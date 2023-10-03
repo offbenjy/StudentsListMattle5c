@@ -13,7 +13,7 @@ export class StudentRowComponent {
   @Output() moveStudent = new EventEmitter<string>();
 
   moveStudentTo(clazzName :string, selectedStudent: StudentDto):void{
-    this.moveStudent.emit(clazzName+"_"+selectedStudent.id+'_'+selectedStudent.clazzName);
+    this.moveStudent.emit(clazzName+"_"+selectedStudent.id+'_'+selectedStudent.clazzName+'_'+selectedStudent.firstname+'_'+selectedStudent.lastname);
   }
 
   getAgeString(student: StudentDto): string {

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { ClassesService, MoveStudentDto, StudentDto, StudentsService } from './swagger';
+import { MoveInfo } from './log/MoveInfo';
 
 @Component({
   selector: 'app-root',
@@ -15,6 +16,9 @@ export class AppComponent implements OnInit {
   studentToMove: MoveStudentDto = null!;
   classesWithoutTheSelector: string[] = [];
   selectedMode:string = "table";
+  lastMoveInfo: MoveInfo | null = null;
+  studentsMoved: StudentDto[] = [];
+  movedStudent:StudentDto =null!;
 
     constructor(
       private classesService: ClassesService,
@@ -77,16 +81,45 @@ export class AppComponent implements OnInit {
     let clazz = selectedClass.split('_')[0]
     let id = +selectedClass.split('_')[1];
     let oldClazz = selectedClass.split('_')[2];
+    let firstname = selectedClass.split('_')[3];
+    let lastname = selectedClass.split('_')[4];
     console.log(id);  
       
       console.log(clazz);
-      this.studentToMove = {newClazzName:clazz,oldClazzName:oldClazz}; //new MoveStudentDto{clazz, '5c'};
+      this.studentToMove = {newClazzName:clazz,oldClazzName:oldClazz}; 
     this.studentsService.studentsIdPut(id,  this.studentToMove)
     .subscribe(x=>{console.log('Student moved successfully')
+
+    this.onMoveStudent(id, clazz, oldClazz,firstname, lastname);
+
     this.onSelectedClassChanged(oldClazz);
+
+
   });
+
+  
+
   }
 
+  onMoveStudent(id:number , targetClazz: string, oldClazz:string, firstname:string,lastname:string, ): void {
+    this.studentsService.studentsGet(targetClazz)      
+    .subscribe(x=> {this.studentsMoved = x
+      console.log(this.students);
 
-
+    });
+    console.log(id+"id in move Student");
+   
+    const moveInfo: MoveInfo = {
+        studentName: `${lastname} ${firstname}`,
+        targetClazz: targetClazz,
+        
+      };
+      //console.log(moveInfo)
+  this.onStudentMoved(moveInfo);
+      
+  }
+  onStudentMoved(moveInfo: MoveInfo): void {
+    console.log(moveInfo + ":Move Info");
+    this.lastMoveInfo = moveInfo;
+  }
 }

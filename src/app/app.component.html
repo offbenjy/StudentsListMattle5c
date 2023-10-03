@@ -7,12 +7,13 @@ title="Klassenauswahl: "
 
 <hr>
 <h1>Klasse {{selectedClass}}</h1>
+
 <hr>
 <input type="radio" [(ngModel)]="selectedMode" value="table"> Table
 <input type="radio" [(ngModel)]="selectedMode" value="card"> Card
 <hr>
-
-
+<app-log [moveInfo]="lastMoveInfo"> </app-log>
+<hr>
 <ng-container *ngIf="selectedMode === 'table'">
     <app-student-row  [clazzes]="classesWithoutTheSelector" [student]="students" (moveStudent)="onMoveStudentTo($event)"></app-student-row>
 </ng-container>
