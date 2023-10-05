@@ -1,4 +1,4 @@
 export class MoveInfo {
-    studentName!: string;
-    targetClazz!: string;
-  }
+  studentName!: string;
+  targetClazz!: string;
+}

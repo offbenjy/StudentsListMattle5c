@@ -24,7 +24,7 @@ import { LogComponent } from './log/log.component';
     HttpClientModule
   ],
   providers: [
-    {provide: BASE_PATH, useValue: envrionment.apiUrl},
+    { provide: BASE_PATH, useValue: envrionment.apiUrl },
   ],
   bootstrap: [AppComponent]
 })

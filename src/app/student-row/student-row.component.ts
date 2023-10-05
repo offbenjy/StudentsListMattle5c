@@ -8,29 +8,23 @@ import { StudentDto } from '../swagger';
 })
 export class StudentRowComponent {
   @Input() clazzes: string[] = [];
-  @Input() student: StudentDto[] = []; 
-  
+  @Input() student: StudentDto[] = [];
+
   @Output() moveStudent = new EventEmitter<string>();
 
-  moveStudentTo(clazzName :string, selectedStudent: StudentDto):void{
-    this.moveStudent.emit(clazzName+"_"+selectedStudent.id+'_'+selectedStudent.clazzName+'_'+selectedStudent.firstname+'_'+selectedStudent.lastname);
+  moveStudentTo(clazzName: string, selectedStudent: StudentDto): void {
+    this.moveStudent.emit(clazzName + "_" + selectedStudent.id + '_' + selectedStudent.clazzName + '_' + selectedStudent.firstname + '_' + selectedStudent.lastname);
   }
 
   getAgeString(student: StudentDto): string {
-     return `${Math.floor(student.age / 10) * 10}+`;
+    return `${Math.floor(student.age / 10) * 10}+`;
   }
 
 
   toggleIsRegistered(student: StudentDto): void {
-    // if(student.isRegistered == true) {
-    //   student.isRegistered = false;
-    // }else {
-    //   student.isRegistered = true;
-    // }
     student.isRegistered = !student.isRegistered;
-
   }
   updateAge(): void {
-    
+    console.log("updateAge");
   }
 }

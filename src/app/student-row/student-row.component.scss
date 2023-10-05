@@ -1,29 +1,30 @@
 .student-row {
-    display: flex;
-    align-items: center;
-  
-    .gender {
-      width: 20px; /* Adjust width as needed */
-      height: 20px;
-      background-size: cover;
-    }
-  
-    .name {
-      width: 80px; 
-      font-weight: bold;
+  display: flex;
+  align-items: center;
 
-      /* Adjust width as needed */
-    }
-  
-    .age {
-      width: 30px; /* Adjust width as needed */
-    }
-    .spaces {
+  .gender {
     width: 20px;
-    }
-    .registered {
-      width: 20px; /* Adjust width as needed */
-      height: 20px;
-      background-size: cover;
-    }
+    height: 20px;
+    background-size: cover;
   }
+
+  .name {
+    width: 80px;
+    font-weight: bold;
+
+  }
+
+  .age {
+    width: 30px;
+  }
+
+  .spaces {
+    width: 20px;
+  }
+
+  .registered {
+    width: 20px;
+    height: 20px;
+    background-size: cover;
+  }
+}
